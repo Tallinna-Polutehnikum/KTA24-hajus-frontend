@@ -7,6 +7,7 @@ import OrderPage from "./components/order.js";
 export const routes = [
   { path: "/", component: Home },
   { path: "/about", component: About },
+  { path: "/products", component: Home }, 
   { path: "/products/:id", component: Product },
   { path: "/order", component: OrderPage },
   { path: "/404", component: NotFound },
@@ -17,7 +18,7 @@ export function navigateTo(url) {
   router();
 }
 
-export function router() {
+export async function router() {
   const path = window.location.pathname;
 
   // Match dynamic routes
@@ -26,10 +27,32 @@ export function router() {
   const root = document.getElementById("app");
   root.innerHTML = "";
 
+  // helper: accept a value or a Promise resolving to a Node/string/array and append to root
+  async function resolveAndAppend(result) {
+    const resolved = await Promise.resolve(result);
+
+    if (resolved instanceof Node) {
+      root.appendChild(resolved);
+      return;
+    }
+
+    if (Array.isArray(resolved)) {
+      resolved.forEach(item => {
+        if (item instanceof Node) root.appendChild(item);
+        else root.appendChild(document.createTextNode(String(item)));
+      });
+      return;
+    }
+
+    // fallback: treat as string or primitive
+    root.appendChild(document.createTextNode(resolved == null ? "" : String(resolved)));
+  }
+
   if (!match) {
-    // fallback
+    // fallback to /404 (component may be sync or async)
     const NotFound = routes.find(r => r.path === "/404")?.component;
-    root.appendChild(NotFound ? NotFound() : document.createTextNode("404"));
+    const result = NotFound ? NotFound() : "404";
+    await resolveAndAppend(result);
     return;
   }
 
@@ -37,8 +60,8 @@ export function router() {
   const result = path.match(regex);
   const params = getParams(match.path, result);
 
-  // pass params to component
-  root.appendChild(match.component({ params }));
+  // pass params to component (component may return a Node or a Promise<Node>)
+  await resolveAndAppend(match.component({ params }));
 }
 
 window.addEventListener("popstate", router);
