@@ -1,9 +1,10 @@
+import { API_URL } from '../main.js';
 import { html } from '../utils.js';
 
 export default function Home() {
   const el = html`<h1>Products</h1><div class="product-list"></div>`;
   
-  fetch("http://localhost:3000/products")
+  fetch(API_URL+"/products")
     .then(res => res.json())
     .then(products => {
       const list = el.querySelector(".product-list");

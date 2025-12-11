@@ -1,9 +1,10 @@
 import { html } from "../utils.js";
+import { API_URL } from "../main.js";
 
 export default async function Product({ params }) {
   const { id } = params;
 
-  const response = await fetch(`http://localhost:3000/products/${id}`);
+  const response = await fetch(`${API_URL}/products/${id}`);
   const product = await response.json();
 
   const el = html`
