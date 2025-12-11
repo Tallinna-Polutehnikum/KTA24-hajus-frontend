@@ -42,6 +42,21 @@ export async function getTotalRatings(productId) {
 }
 
 /**
+ * Gets all reviews for a product with full details
+ * @param {string} productId - UUID of the product
+ * @returns {Promise<Array<{name: string, email: string, rating: number, comment: string}>>} - Array of review objects
+ */
+export async function getReviews(productId) {
+  const reviews = await fetchReviews(productId);
+  return reviews.map(({ name, email, rating, comment }) => ({
+    name,
+    email,
+    rating,
+    comment
+  }));
+}
+
+/**
  * Posts a new rating/review for a product
  * @param {Object} reviewData - The review data
  * @param {string} reviewData.name - Reviewer's name
