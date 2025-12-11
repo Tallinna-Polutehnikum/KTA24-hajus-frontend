@@ -21,10 +21,14 @@ export default function OrderPage() {
         phone: state.phone,
         email: state.email
       },
-      products: [
-        { product_id: 1, quantity: 2 } // ajutine, kuni ühendame cart-service'iga
-      ]
+      products: []
     };
+    
+    order.products = Object.values(JSON.parse(localStorage.getItem("cart") || "{}"))
+      .map(item => ({
+        product_id: item.id,
+        quantity: item.quantity
+      }));
 
     const res = await fetch(API_URL+"/orders", {
       method: "POST",

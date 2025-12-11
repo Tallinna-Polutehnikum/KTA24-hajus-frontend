@@ -19,6 +19,14 @@ export default async function Product({ params }) {
 
   el.querySelector(".add-btn").addEventListener("click", () => {
     console.log("Added to cart:", product.id);
+    let cart = JSON.parse(localStorage.getItem("cart")) || {};
+    if (cart[product.id]) {
+      cart[product.id].quantity += 1;
+    } else {
+      cart[product.id] = { ...product, quantity: 1 };
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+
   });
 
   return el;
