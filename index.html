@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS SPA</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="/" class="nav-brand" data-link>Vanilla SPA</a>
+                <ul class="nav-menu">
+                    <li><a href="/" data-link>Home</a></li>
+                    <li><a href="/about" data-link>About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main id="content" class="content">
+            <!-- Content will be dynamically inserted here -->
+        </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

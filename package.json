@@ -1,0 +1,22 @@
+{
+  "name": "kta24-hajus-frontend",
+  "version": "1.0.0",
+  "description": "Modern single-page application built with vanilla JavaScript and Vite",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "spa",
+    "vanilla-js",
+    "vite",
+    "frontend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^7.2.7"
+  }
+}
