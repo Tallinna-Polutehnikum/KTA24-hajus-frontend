@@ -14,7 +14,6 @@ export default function Home() {
     ];
 
     const productListEl = el.querySelector('.product-list');
-    console.log(el, productListEl);
     products.forEach(product => {
         const productEl = html`
         <div class="product-item">
