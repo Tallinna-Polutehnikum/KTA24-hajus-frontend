@@ -1,10 +1,8 @@
-import { API_URL } from "./main";
-
-const BASE_URL = API_URL+'/auth'; 
+import { API_URL } from "./main.js";
 
 export async function registerUser(data) {
   try {
-    const res = await fetch(`${BASE_URL}/register`, {
+    const res = await fetch(`${API_URL}/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
@@ -18,7 +16,7 @@ export async function registerUser(data) {
 
 export async function loginUser(data) {
   try {
-    const res = await fetch(`${BASE_URL}/login`, {
+    const res = await fetch(`${API_URL}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
