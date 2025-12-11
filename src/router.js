@@ -2,12 +2,14 @@ import Home from "./components/home.js";
 import About from "./components/about.js";
 import NotFound from "./components/notfound.js";
 import Product from "./components/product.js";
+import OrderPage from "./components/order.js";
 
 export const routes = [
   { path: "/", component: Home },
   { path: "/about", component: About },
   { path: "/products", component: Home }, 
   { path: "/products/:id", component: Product },
+  { path: "/order", component: OrderPage },
   { path: "/404", component: NotFound },
 ];
 
