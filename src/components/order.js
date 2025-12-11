@@ -1,3 +1,4 @@
+import { API_URL } from "../main.js";
 import { html } from "../utils.js";
 
 export default function OrderPage() {
@@ -25,7 +26,7 @@ export default function OrderPage() {
       ]
     };
 
-    const res = await fetch("http://localhost:3002/orders", {
+    const res = await fetch(API_URL+"/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(order)
