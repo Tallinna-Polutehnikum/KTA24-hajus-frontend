@@ -3,6 +3,8 @@ import About from "./components/about.js";
 import NotFound from "./components/notfound.js";
 import Product from "./components/product.js";
 import OrderPage from "./components/order.js";
+import LoginPage from './components/login.js';
+import RegisterPage from './components/register.js';
 
 export const routes = [
   { path: "/", component: Home },
@@ -11,6 +13,8 @@ export const routes = [
   { path: "/products/:id", component: Product },
   { path: "/order", component: OrderPage },
   { path: "/404", component: NotFound },
+  { path: "/login", component: LoginPage },
+  { path: "/register", component: RegisterPage },
 ];
 
 export function navigateTo(url) {
