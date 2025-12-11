@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:5000/api/auth'; 
+import { API_URL } from "./main";
+
+const BASE_URL = API_URL+'/auth'; 
 
 export async function registerUser(data) {
   try {
