@@ -1,0 +1,26 @@
+{
+  "name": "kta24-hajus-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tallinna-Polutehnikum/KTA24-hajus-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Tallinna-Polutehnikum/KTA24-hajus-frontend/issues"
+  },
+  "homepage": "https://github.com/Tallinna-Polutehnikum/KTA24-hajus-frontend#readme",
+  "dependencies": {
+    "vite": "^7.2.7"
+  }
+}
