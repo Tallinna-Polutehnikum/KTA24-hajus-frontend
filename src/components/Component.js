@@ -8,6 +8,18 @@ export class Component {
     }
 
     /**
+     * Escape HTML to prevent XSS attacks
+     * Use this when rendering user-provided content
+     * @param {string} str - String to escape
+     * @returns {string} Escaped string
+     */
+    escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    /**
      * Render method - should be overridden by child components
      * @returns {string} HTML string
      */
@@ -23,12 +35,12 @@ export class Component {
     }
 
     /**
-     * Update component state and re-render
+     * Update component state (Note: does not automatically trigger re-render)
      * @param {Object} newState - The new state to merge
+     * In this simple implementation, re-rendering must be done manually by updating DOM elements
      */
     setState(newState) {
         this.state = { ...this.state, ...newState };
-        // In a more complex setup, you'd trigger a re-render here
     }
 
     /**

@@ -51,6 +51,8 @@ export class Router {
     render(component) {
         if (this.contentElement) {
             const instance = new component();
+            // Using innerHTML here is safe as we're rendering trusted component content
+            // Components should ensure any user input is properly escaped
             this.contentElement.innerHTML = instance.render();
             
             // Call mount lifecycle hook if it exists
